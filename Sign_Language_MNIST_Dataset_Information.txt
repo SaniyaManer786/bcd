@@ -1,0 +1,156 @@
+SIGN LANGUAGE MNIST DATASET
+Complete Dataset Description and Project Reference
+====================================================
+
+1. DATASET OVERVIEW
+
+Dataset name: Sign Language MNIST
+Platform: Kaggle
+Dataset owner/uploader: tecperson
+Dataset purpose: Hand gesture recognition and American Sign Language (ASL) alphabet classification
+Dataset type: Image classification dataset supplied in CSV format
+Dataset version: Version 1
+Dataset size: Approximately 105.8 MB for the listed data version
+License: CC0: Public Domain
+Last updated: Approximately 9 years ago, according to the Kaggle dataset page
+Expected update frequency: Not specified
+Kaggle usability score shown on the page: 7.65
+
+Sign Language MNIST is an image dataset designed as a drop-in replacement for the traditional MNIST handwritten digit dataset. Instead of handwritten digits, it contains grayscale images of hand gestures representing letters from the American Sign Language (ASL) alphabet.
+
+The task is a supervised, multi-class image classification problem. A machine learning model receives an image of a hand gesture and predicts the corresponding ASL alphabet letter.
+
+The dataset contains 24 classes. The letters J and Z are excluded because their ASL signs require movement and cannot be represented adequately by a single static image.
+
+2. DATASET OBJECTIVE
+
+The main objective is to develop and evaluate computer vision and machine learning models that can recognize static ASL alphabet hand gestures.
+
+Possible objectives include:
+- Classifying a hand gesture into one of the supported ASL letters.
+- Comparing traditional machine learning algorithms with deep learning models.
+- Building a convolutional neural network (CNN) for image classification.
+- Studying the effect of image preprocessing and data augmentation.
+- Developing a prototype that converts recognized letters into text.
+- Exploring an assistive communication application for people who use sign language.
+
+This dataset represents alphabet gestures only. It is not a complete ASL language translation dataset and does not contain the grammar, facial expressions, sentence structure, or continuous motion needed for full sign-language translation.
+
+3. DATASET SIZE AND STRUCTURE
+
+The dataset provides two principal CSV files:
+
+Training file: sign_mnist_train.csv
+Number of records: 27,455
+Purpose: Used to train the machine learning model.
+
+Testing file: sign_mnist_test.csv
+Number of records: 7,172
+Purpose: Used to evaluate the trained model on separate examples.
+
+Total records: 34,627
+
+Each CSV file contains 785 columns:
+- One label column.
+- 784 pixel-value columns.
+
+The first column is named "label".
+The remaining columns are named "pixel1" through "pixel784".
+
+Each record represents one 28 x 28 grayscale image.
+The 784 pixel values correspond to the 784 pixels in the image.
+Pixel values range from 0 to 255.
+
+The dataset is arranged in a tabular CSV format. Therefore, each image is represented by one row rather than being stored as a separate image file.
+
+4. CLASS LABELS
+
+The label column contains integer values corresponding to alphabet letters.
+
+Label-to-letter mapping:
+
+0  = A
+1  = B
+2  = C
+3  = D
+4  = E
+5  = F
+6  = G
+7  = H
+8  = I
+9  = J - not present in this dataset
+10 = K
+11 = L
+12 = M
+13 = N
+14 = O
+15 = P
+16 = Q
+17 = R
+18 = S
+19 = T
+20 = U
+21 = V
+22 = W
+23 = X
+24 = Y
+25 = Z - not present in this dataset
+
+There are 24 supported classes because J and Z are excluded. These two letters involve movement in ASL and cannot be represented by a single static hand image.
+
+Important: Do not assume that the labels are numbered continuously from 0 to 23. The original alphabet-based label numbering is retained, so values 9 and 25 are absent. A model trained with these labels may produce class indices from the set of existing label values. The output should be mapped using the label-to-letter mapping above.
+
+5. FILES AVAILABLE IN THE KAGGLE DATASET
+
+The Kaggle page lists five files:
+
+1. sign_mnist_train.csv
+   Contains 27,455 labelled training examples. Each row has one label and 784 pixel values.
+
+2. sign_mnist_test.csv
+   Contains 7,172 labelled test examples. It has the same column structure as the training file.
+
+3. amer_sign2.png
+   A cropped image montage showing examples of American Sign Language letters from different users and backgrounds. It can be used for visual understanding of the gesture classes.
+
+4. amer_sign3.png
+   An additional image reference included in the dataset page/file collection, where available in the downloaded version.
+
+5. american_sign_language.PNG
+   An additional American Sign Language alphabet reference image included in the dataset page/file collection, where available in the downloaded version.
+
+The CSV files are the main files required for model training and evaluation. The image reference files are useful for understanding the alphabet gestures and interpreting predictions.
+
+The Kaggle page reports five files in total. The exact file availability and file names should be confirmed after downloading the dataset.
+
+6. HOW THE DATA WAS CREATED
+
+The original hand gesture image data consisted of approximately 1,704 colour images. The images represented multiple users repeating hand gestures against different backgrounds.
+
+The original images were not cropped around the hand region of interest. An image-processing pipeline was used to prepare the images and expand the dataset.
+
+The described processing steps include:
+- Cropping the images to focus on the hand region.
+- Converting colour images to grayscale.
+- Resizing images to 28 x 28 pixels.
+- Generating at least 50 or more variations from source images to increase the number of examples.
+- Applying different image resizing/interpolation filters.
+- Introducing approximately 5 percent random pixelation.
+- Varying brightness and contrast by approximately plus or minus 15 percent.
+- Applying rotations of up to approximately 3 degrees.
+
+The interpolation filters mentioned in the dataset description are:
+- Mitchell
+- Robidoux
+- Catrom
+- Spline
+- Hermite
+
+The dataset was created using an image pipeline based on ImageMagick.
+
+These transformations introduce controlled variations in image appearance and resolution. They are intended to make the classification task more challenging and to provide a larger set of examples.
+
+7. DATA FORMAT AND PREPROCESSING
+
+The dataset is already converted into 28 x 28 grayscale pixel arrays. A separate image-loading process is not required for the CSV files.
+
