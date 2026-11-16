@@ -1,5 +1,5 @@
 Chatgpt Link For the Oral Preparation :- 
 
-https://chatgpt.com/share/6af9f9c7-4534-83e8-a726-732106e6fc9e
+https://chatgpt.com/share/6afa9a4a-dd30-83e8-89dd-2ed08d42a2fd
 
 
